@@ -1,6 +1,8 @@
 package fr.afcepf.al28.ws.tax.biz.impl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -37,8 +39,18 @@ public class ServiceTaxBean implements ServiceTax, Serializable {
 
 	@Override
 	public Double calculTax(double montant, double tva) throws TaxWSException {
-		// TODO Auto-generated method stub
+		
 		return (montant*tva);
+	}
+
+	@Override
+	public List<TaxDto> getAllCountryTax() throws TaxWSException {
+		
+		List<TaxDto> listePaysTaxe = new ArrayList<TaxDto>();
+		for (Tax taxe : daoTax.getAllTaxes()) {
+			listePaysTaxe.add(entityToDto(taxe));
+		}
+		return listePaysTaxe;
 	}
 
 }

@@ -1,5 +1,7 @@
 package fr.afcepf.al28.ws.tax.biz.api;
 
+import java.util.List;
+
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.jws.WebParam;
@@ -16,4 +18,6 @@ public interface ServiceTax {
 	public Double calculTax(@WebParam(name="montant")double montant,
 			                @WebParam(name="tva")double tva)
 	                        throws TaxWSException;
+	public List<TaxDto> getAllCountryTax() throws TaxWSException;
+	
 }
