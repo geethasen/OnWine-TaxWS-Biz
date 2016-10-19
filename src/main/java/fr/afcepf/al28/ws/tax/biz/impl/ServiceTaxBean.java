@@ -13,7 +13,7 @@ import fr.afcepf.al28.ws.tax.entity.Tax;
 import fr.afcepf.al28.ws.tax.exception.TaxWSException;
 
 @Stateless
-@WebService(endpointInterface="fr.afcepf.al28.ws.tax.biz.api.ServiceTax")
+@WebService(endpointInterface="fr.afcepf.al28.ws.tax.biz.api.ServiceTax", targetNamespace = "http://tax.afcepf.fr")
 public class ServiceTaxBean implements ServiceTax, Serializable {
 	
 	/**

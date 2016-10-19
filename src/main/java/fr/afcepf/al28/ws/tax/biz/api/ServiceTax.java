@@ -8,7 +8,7 @@ import javax.jws.WebService;
 import fr.afcepf.al28.ws.tax.biz.dto.TaxDto;
 import fr.afcepf.al28.ws.tax.exception.TaxWSException;
 
-@WebService()
+@WebService(targetNamespace = "http://tax.afcepf.fr")
 public interface ServiceTax {
 	
 	public TaxDto rechercherTax(@WebParam(name="codePays")String codePays) throws TaxWSException;
