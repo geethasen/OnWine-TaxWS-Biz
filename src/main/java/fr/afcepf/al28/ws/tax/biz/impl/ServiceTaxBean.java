@@ -38,12 +38,6 @@ public class ServiceTaxBean implements ServiceTax, Serializable {
 	}
 
 	@Override
-	public Double calculTax(double montant, double tva) throws TaxWSException {
-		
-		return (montant*tva);
-	}
-
-	@Override
 	public List<TaxDto> getAllCountryTax() throws TaxWSException {
 		
 		List<TaxDto> listePaysTaxe = new ArrayList<TaxDto>();
@@ -51,6 +45,14 @@ public class ServiceTaxBean implements ServiceTax, Serializable {
 			listePaysTaxe.add(entityToDto(taxe));
 		}
 		return listePaysTaxe;
+	}
+
+	@Override
+	public Double calculTax(double montant, String codePays) throws TaxWSException {
+		// TODO Auto-generated method stub
+		Tax tax = daoTax.getTaxByCodePays(codePays);
+		Double tvaPays = tax.getTva(); 
+		return (montant*tvaPays);
 	}
 
 }

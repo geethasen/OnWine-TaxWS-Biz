@@ -16,7 +16,7 @@ public interface ServiceTax {
 	public TaxDto rechercherTax(@WebParam(name="codePays")String codePays) throws TaxWSException;
 
 	public Double calculTax(@WebParam(name="montant")double montant,
-			                @WebParam(name="tva")double tva)
+			                @WebParam(name="codePays")String codePays)
 	                        throws TaxWSException;
 	public List<TaxDto> getAllCountryTax() throws TaxWSException;
 	
