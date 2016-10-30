@@ -52,7 +52,7 @@ public class ServiceTaxBean implements ServiceTax, Serializable {
 		// TODO Auto-generated method stub
 		Tax tax = daoTax.getTaxByCodePays(codePays);
 		Double tvaPays = tax.getTva(); 
-		return (montant*tvaPays);
+		return (((montant/100)*tvaPays));
 	}
 
 }
